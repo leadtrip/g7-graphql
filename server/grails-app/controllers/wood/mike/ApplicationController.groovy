@@ -1,4 +1,4 @@
-package com.objectcomputing
+package wood.mike
 
 import grails.core.GrailsApplication
 import grails.plugins.*

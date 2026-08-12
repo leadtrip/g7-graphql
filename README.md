@@ -1,29 +1,15 @@
-## Grails 7.2.2 Documentation
+## Grails 7.2.2 app using graphql and react
 
-- [User Guide](https://grails.apache.org/docs/7.2.2/guide/index.html)
-- [API Reference](https://grails.apache.org/docs/7.2.2/api/index.html)
-- [Grails Guides](https://guides.grails.org/index.html)
----
+Bring up the grails app with
 
-## Feature geb-with-testcontainers documentation
+`./gradlew server:bootRun`
 
-- [Grails Geb Functional Testing for Grails with Testcontainers documentation](https://github.com/apache/grails-geb#readme)
+Hit the graphql API with the supplied [graphql requests](g7-graphql-requests.http)
 
-- [https://groovy.apache.org/geb/manual/current/](https://groovy.apache.org/geb/manual/current/)
+There is/was a stand alone graphql plugin but the functionality seems to have merged into grails core recently which is
+what is used here, the documentation is not helpful as it's still written as if it's still a plugin.\
+No idea how to get the `\graphql\browser` working, have tried adding config `grails.gorm.graphql.browser = true` to no avail.
 
-## Feature asset-pipeline-grails documentation
+https://github.com/apache/grails-core/tree/v7.2.2/grails-data-graphql
 
-- [Grails Asset Pipeline documentation](https://github.com/wondrify/asset-pipeline#readme)
-
-## Feature gorm-graphql documentation
-
-- [https://graphql.org](https://graphql.org)
-
-## Feature spring-boot-devtools documentation
-
-- [Grails SpringBoot Developer Tools documentation](https://docs.spring.io/spring-boot/reference/using/devtools.html)
-
-## Feature scaffolding documentation
-
-- [Grails Scaffolding documentation](https://grails.apache.org/docs/7.2.2/guide/scaffolding.html)
 

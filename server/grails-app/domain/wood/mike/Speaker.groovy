@@ -1,4 +1,4 @@
-package com.objectcomputing
+package wood.mike
 
 import grails.rest.Resource
 import org.grails.gorm.graphql.entity.dsl.GraphQLMapping

@@ -1,5 +1,89 @@
-### GET request to example server
-GET https://examples.http-client.intellij.net/get
-    ?generated-in=IntelliJ IDEA
+@endpoint = http://localhost:8080/graphql
 
-###
+## Queries
+
+## List speaker ids
+GRAPHQL {{endpoint}}
+
+query {
+    speakerList(max: 10) {
+        id
+    }
+}
+
+### Return total speakers
+GRAPHQL {{endpoint}}
+
+query {
+    speakerCount
+}
+
+### Retrieve speaker details by id
+GRAPHQL {{endpoint}}
+
+query {
+    speaker(id: 1) {
+        firstName
+        lastName
+        bio
+    }
+}
+
+### Return list of talks with speaker details embedded
+GRAPHQL {{endpoint}}
+
+query {
+    talkList(max:10) {
+            title
+            speaker {
+            firstName
+            lastName
+        }
+    }
+}
+
+## Mutations
+
+### Update speaker by id, return any error messages (if any)
+GRAPHQL {{endpoint}}
+
+mutation {
+    speakerUpdate(id: 1, speaker: {
+    bio: "Updated bio!"
+        })
+    {
+        id
+        bio
+        errors {
+        field
+        message
+        }
+    }
+}
+
+### Create speaker - this mutation will return an error due to missing property
+GRAPHQL {{endpoint}}
+
+mutation {
+    speakerCreate(speaker: {
+        firstName: "James"
+        lastName: "Kleeh"
+    }) {
+        id
+        firstName
+        lastName
+        errors {
+            field
+            message
+        }
+    }
+}
+
+### Delete speaker by id
+GRAPHQL {{endpoint}}
+
+mutation {
+    speakerDelete(id: 2) {
+        error
+    }
+}
