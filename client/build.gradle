@@ -8,30 +8,35 @@ node {
     download = true
 }
 
-task bootRun(dependsOn: 'start') {
+tasks.register('bootRun') {
+    dependsOn 'start'
     group = 'application'
     description = 'Run the client app (for use with gradle bootRun -parallel'
 }
 
-task start(type: YarnTask, dependsOn: 'yarn') {
+tasks.register('start', YarnTask) {
+    dependsOn 'yarn'
     group = 'application'
     description = 'Run the client app'
     args = ['run', 'start']
 }
 
-task build(type: YarnTask, dependsOn: 'yarn') {
+tasks.register('build', YarnTask) {
+    dependsOn 'yarn'
     group = 'build'
     description = 'Build the client bundle'
     args = ['run', 'build']
 }
 
-task test(type: YarnTask, dependsOn: 'yarn') {
+tasks.register('test', YarnTask) {
+    dependsOn 'yarn'
     group = 'verification'
     description = 'Run the client tests'
     args = ['run', 'test']
 }
 
-task eject(type: YarnTask, dependsOn: 'yarn') {
+tasks.register('eject', YarnTask) {
+    dependsOn 'yarn'
     group = 'other'
     description = 'Eject from the create-react-app scripts'
     args = ['run', 'eject']

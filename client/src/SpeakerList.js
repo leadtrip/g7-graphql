@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import Speaker from "./Speaker";
-import {graphql} from 'react-apollo';
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
 import 'whatwg-fetch';
+import {graphql} from "graphql/graphql";
 
 class SpeakerList extends Component {
 
@@ -12,7 +12,7 @@ class SpeakerList extends Component {
     }
 }
 
-export const SPEAKER_QUERY = gql`query {	speakerList(max: 10) {
+export const SPEAKER_QUERY = gql`query { speakerList(max: 10) {
     id, firstName, lastName,
     talks { id title, duration}
 }

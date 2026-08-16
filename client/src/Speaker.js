@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {Button, Card, CardBody, CardHeader, CardText, Col, Row} from 'reactstrap'
 import Talk from "./Talks";
-import {graphql, compose} from 'react-apollo'
-import gql from 'graphql-tag'
+import { gql } from '@apollo/client';
+import {graphql} from "graphql/graphql";
 
 class Speaker extends Component {
 

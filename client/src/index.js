@@ -1,23 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import App from './App';
 import './css/bootstrap.css';
 import './css/App.css';
 import './css/grails.css';
 import './css/main.css';
-import {ApolloProvider} from 'react-apollo';
-import {ApolloClient} from 'apollo-client';
-import {createHttpLink} from 'apollo-link-http';
-import {InMemoryCache} from 'apollo-cache-inmemory';
-import { SERVER_URL} from "./config";
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
+import { SERVER_URL } from "./config";
 
-// <1>
 const client = new ApolloClient({
-  link: createHttpLink({ uri: `${SERVER_URL}/graphql` }), // <2>
+  link: createHttpLink({ uri: `${SERVER_URL}/graphql` }),
   cache: new InMemoryCache()
 });
 
-// <3>
-ReactDOM.render(< ApolloProvider client={client}>
-  <App />
-</ApolloProvider>, document.getElementById('root'));
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+);

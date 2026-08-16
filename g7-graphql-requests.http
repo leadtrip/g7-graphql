@@ -26,6 +26,19 @@ query {
         firstName
         lastName
         bio
+        mood
+    }
+}
+
+### Retrieve speaker details by first name
+GRAPHQL {{endpoint}}
+
+query {
+    speakerByName(firstName: "Zachary") {
+        firstName
+        lastName
+        bio
+        mood
     }
 }
 
